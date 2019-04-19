@@ -163,5 +163,5 @@ ggplot(data = big5, mapping = aes(x = party_crect, y = vote_pct, fill = party_cr
 dev.off()
 
 ```
-![](election2019_top5_all_provinces.jpg)
+![](figures/election2019_top5_all_provinces.jpg)
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
