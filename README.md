@@ -325,4 +325,4 @@ bscols(widths = c(4,8),
 
 ```
 
-<iframe src="figures/plotly.html" width="1200" height="450" ></iframe>
+figures/plotly.html
