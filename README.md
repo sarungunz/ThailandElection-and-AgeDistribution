@@ -163,3 +163,166 @@ dev.off()
 ```
 ![](figures/election2019_top5_all_provinces.jpg)
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
+
+- อีกรูปแบบหนึ่งที่น่าจะเป็นประโยชน์ต่อการทำ Data Visualization ก็คือ การแสดงข้อมูลในเชิงพื้นที่ซึ่งช่วยให้เราสามารถวิเคราะห์บริบทที่แตกต่างกันของแต่ละพื้นที่ เพื่อให้การแสดงข้อมูลมีความน่าสนใจมากยิ่งขึ้น
+- Fig.2 แสดง (Static) Data Visualization โดย Link ข้อมูลผลการเลือกตั้งเข้ากับ Polygon ของจังหวัด และเพื่อเพิ่มความน่าสนใจ จึงลองสร้าง Animation ที่แสดงผลการเลือกตั้งในระดับจังหวัดเช่นเดียวกัน ดังแสดงใน Fig.3
+- ในส่วนของ Shapefile ของจังหวัดทั้งหมดของประเทศไทยนั้น ผมทำการ Download จาก ArcGIS REST Services Directory ของ GISTDA และแปลงเป็น SpatialPolygonDataFrame
+
+*หมายเหตุ: เพื่อประหยัดพื้นที่ในบทความ ผู้เขียนขอข้ามขั้นตอนการเตรียมข้อมูลอย่างละเอียด*
+
+### **Guiding R-Script สำหรับการทำ Data Visualization และ Data Animation ข้อมูลผลการเลือกตั้งเชิงพื้นที่ มีดังต่อไปนี้**
+
+```{r}
+# Create function to plot each region separately
+region <- c("north","west","east","neast","central","south","metro")
+plot_by_region <- function(region,width,height,offset) {
+  zone = region
+  ggplot() + 
+    geom_polygon(data = subset(prv_spX, region == zone), #'prv_spX' dataframe is created from the shapefile downloaded from GISTDA Portal
+                 aes(x = long, y = lat, group = group), fill = '#FFCC33', colour = 'black') +
+    geom_image(data = subset(center, region == zone), #'center' dataframe contains the centroids of all provinces derived from the shapefile
+               aes(image = image, x = lon, y = lat + offset), size = 0.115, by = "width") +
+    theme(legend.position = "none"
+          , rect = element_rect(fill = "transparent") # all rectangles
+          , text = element_blank()
+          , line = element_blank()
+          , panel.background = element_rect(fill = "transparent", color = NA) # bg of the panel
+          , plot.background = element_rect(fill = "transparent", color = NA) # bg of the plot
+          , panel.grid.major = element_blank() # get rid of major grid
+          , panel.grid.minor = element_blank() # get rid of minor grid
+          , legend.background = element_rect(fill = "transparent") # get rid of legend bg
+          , legend.box.background = element_rect(fill = "transparent") # get rid of legend panel bg
+    )
+  ggsave(paste0("/Path/to/Your/Directory/filename_",zone,".png"), 
+         device = "png", width = width, height = height, units = "mm", bg="transparent")
+}
+
+for (i in c(1:length(region))) {
+    if (i != 7){
+      plot_by_region(region = region[[i]], width = 800, height = 800, offset = 0.2) #All regions except metropolitan
+    } else {
+        plot_by_region(region = region[[i]], width = 800, height = 800, offset = 0.025) #Metropolitan region only
+    }
+}
+
+# Create function to animate each region separately
+ani_byRegion <- function(region, offset, fps) {
+  zone = region
+  p2 <- ggplot(data = subset(center, region == zone)) + 
+  geom_polygon(data = subset(main_spX, region == zone), 
+               aes(x = long, y = lat, group = group), fill = '#FFCC33', colour = 'black') +
+  geom_image(data = subset(center, region == zone), 
+             aes(image = image, x = lon, y = lat+offset), size = 0.15, by = "width") +
+  transition_states(states = prvEN) +
+  view_follow() +
+  theme(legend.position = "none"
+        , rect = element_rect(fill = "transparent") # all rectangles
+        , text = element_blank()
+        , axis.title.x = element_blank()
+        , axis.text.x = element_blank()
+        , axis.ticks.x = element_blank()
+        , axis.title.y = element_blank()
+        , axis.text.y=element_blank()
+        , axis.ticks.y=element_blank()
+        , line = element_blank()
+        , panel.background = element_rect(fill = "transparent", color = NA) # bg of the panel
+        , plot.background = element_rect(fill = "transparent", color = NA) # bg of the plot
+        , panel.grid.major = element_blank() # get rid of major grid
+        , panel.grid.minor = element_blank() # get rid of minor grid
+        , legend.background = element_rect(fill = "transparent") # get rid of legend bg
+        , legend.box.background = element_rect(fill = "transparent") # get rid of legend panel bg
+  )
+  p2.1 <- animate(p2, fps = fps, height = 800, width = 800)
+  anim_save(paste0("/Path/to/Your/Directory/filename_",zone,".gif"), p2.1)
+}
+```
+
+<table><tr>
+<td><img src="tempo_south.png" width="240" height="240"> <figcaption>(a) Southern Region</figcaption></td>
+<td><img src="tempo_west.png" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
+<td><img src="tempo_central.png" width="240" height="240"> <figcaption>(c) Central Region</figcaption></td>
+<td><img src="tempo_metro.png" width="240" height="240"> <figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
+
+<table><tr>
+<td><img src="tempo_east.png" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
+<td><img src="tempo_neast.png" width="240" height="240"> <figcaption>(f) NorthEastern Region</figcaption></td>
+<td><img src="tempo_north.png" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
+
+<figcaption>Fig.2 Static Visualization of Mapped Election Results by Region</figcaption>
+
+<table><tr>
+<td><img src="ani_region_south.gif" width="240" height="240"> <figcaption>(a) Southern Region</figcaption></td>
+<td><img src="ani_region_west.gif" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
+<td><img src="ani_region_central.gif" width="240" height="240"> <figcaption>(c) Central Region</figcaption></td>
+<td><img src="ani_region_metro.gif" width="240" height="240"> <figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
+
+<table><tr>
+<td><img src="ani_region_east.gif" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
+<td><img src="ani_region_neast.gif" width="240" height="240"> <figcaption>(f) NorthEastern Region</figcaption></td>
+<td><img src="ani_region_north.gif" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
+
+<figcaption>Fig.3 Animation of Mapped Election Results by Region</figcaption>
+
+- ในส่วนของ Data visualization ของข้อมูลสัดส่วนจำนวนประชากรคนรุ่นใหม่ต่อประชากรผู้มีสิทธิ์ทัั้งหมดในแต่ละจังหวัดประจำปี 2561 นั้น ผู้เขียนตัดสินใจสร้าง Facet plot เช่นเดียวกันกับผลการเลือกตั้งข้างบน เพื่อสะดวกต่อการเปรียบเทียบ ดังแสดงใน Fig.4
+
+### **Guiding R-Script สำหรับการทำ Data Visualization ข้อมูลสัดส่วนจำนวนประชากรคนรุ่นใหม่ มีดังต่อไปนี้**
+
+```{r}
+jpeg(paste0('/Volumes/SGunK/Research_Database/election2019/age_distribution_provinces.jpg'), width = 16000, height = 9000, units = 'px', res = 1000)
+ggplot(data = melt_tot, mapping = aes(x = age, y = persons, fill = prvEN)) +
+  geom_bar(stat = "identity", position=position_dodge(), width = 0.3) +
+  facet_wrap(~ prvEN, ncol = 11) +
+  theme(legend.position = "none") +
+  ylab("Density (% of population of that age)")
+dev.off()
+
+```
+
+<img src="figures/age_distribution_provinces.jpg">
+<figcaption>Fig.4 Facet Plot of Age Distribution across Thailand</figcaption>
+
+- ในส่วนสุดท้ายของบทความนี้ เราจะมาลองทำ Interactive Dashboard เพื่อช่วยในการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น
+
+### **Guiding R-Script สำหรับการทำ Interactive Dashboard เพื่อการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น มีดังต่อไปนี้**
+
+```{r}
+# Create function to aggregate the number of 'newgen' defined by user
+age_range <- function(dummy,new,mid) {
+  df <- dummy
+  df$newgen <- rowSums(df[,1:which(colnames(df) == paste0("pct_tot_",new))])
+  df$midgen <- rowSums(df[ ,which(colnames(df) == paste0("pct_tot_",new+1)) : which(colnames(df) == paste0("pct_tot_",mid))])  
+  df$oldgen <- rowSums(df[ ,which(colnames(df) == paste0("pct_tot_",mid+1)) : which(colnames(df) == "pct_tot_101")])  
+  gen_tot <- melt(data = df[,c("prvEN","newgen","midgen","oldgen")], id.vars = "prvEN", variable.name = "age", value.name = "persons")
+  gen_tot$persons <- gen_tot$persons * 100
+  colnames(gen_tot)[ncol(gen_tot)] <- "density"
+  result <- merge(big5, gen_tot[which(gen_tot$age == "newgen"),c("prvEN","density","age")], by.x = "prvEN", by.y = "prvEN")
+  result$newgen <- new
+  return(result)
+}
+# Create possible range of 'newgen' definitions
+gentotal <- data.frame()
+for (i in c(30:45)) {
+  gentot <- age_range(dummy = final_tot, new = i, mid = 60)
+  gentotal <- rbind(gentotal,gentot)
+}
+# Create plotly interactive
+gx <- highlight_key(gentotal) #key = ~party_crect)
+popxelect <- ggplot(data = gx, mapping = aes(x = density, y = vote_pct, group = interaction(party_crect,newgen))) +
+  scale_color_manual("พรรคการเมือง",values = c("อนาคตใหม่" = "orange", "พลังประชารัฐ" = "darkblue", "เพื่อไทย" = "red", "ภูมิใจไทย" = "pink", "ประชาธิปัตย์" = "lightblue")) +
+  geom_smooth(aes(color = party_crect), method = "lm", formula = y ~ x, se = FALSE) +
+  geom_ribbon(stat='smooth', method = "lm", formula = y ~ x, se=TRUE, alpha=0.1, aes(color = NULL)) +
+  scale_x_continuous("สัดส่วนผู้มีสิทธิ์รุ่นใหม่ (NewGen) ต่อผู้มีสิทธิ์ทั้งหมดในจังหวัด (%)") + #Density of NewGen (NewGen Voters / Total Voters)
+  scale_y_continuous("สัดส่วนคะแนนเสียงที่ได้รับ (%)") #% of votes received
+#popxelect
+filter <- bscols(
+  widths = c(12, 12),
+  filter_select("id","เลือกพรรคที่ต้องการวิเคราะห์", gx, ~party_crect),
+  filter_checkbox("gen", "เลือกลิมิตของอายุสำหรับนิยามคำว่า 'NewGen' (18 ปี - xx ปี) ", gx, ~newgen, inline = TRUE)
+)
+bscols(widths = c(4,8),
+       filter,
+       ggplotly(popxelect, dynamicTicks = TRUE))
+
+```
+
+<iframe width="1200" height="450" src="figures/plotly.html" border="0"></iframe>
