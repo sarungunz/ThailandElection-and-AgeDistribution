@@ -12,6 +12,7 @@
 <iframe src="figures/plotly.html" width="1200" height="450" ></iframe>
 </p>
 
+
 ### ** รายละเอียดขั้นตอนในการเตรียมข้อมูล (เฉพาะขั้นตอนที่สำคัญ) **
 
 - ในเบื้องต้น ผมใช้ผลการเลือกต้ังแบบ 100% ที่ประกาศบน website ของสำนักงานคณะกรรมการการเลือกต้ัง (กกต.) [Download "HERE"](https://www.ect.go.th/ewt/ewt/ect_th/download/article/article_20190328165029.pdf) ซึ่งอยู่ในรูปแบบของ PDF
