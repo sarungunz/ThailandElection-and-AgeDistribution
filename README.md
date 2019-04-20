@@ -295,8 +295,7 @@ dev.off()
 <figcaption>Fig.4 Facet Plot of Age Distribution across Thailand</figcaption>
 <br/><br/>
 
-- ในส่วนสุดท้ายของบทความนี้ เราจะมาลองทำ Interactive Visualization ตามที่ได้แสดงไว้ในตอนต้นของบทความ เพื่อช่วยในการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น
-<br/>
+- ในส่วนสุดท้ายของบทความนี้ เราจะมาลองทำ Interactive Visualization ตามที่ได้แสดงไว้ในตอนต้นของบทความ เพื่อช่วยในการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น<br/>
 
 ### **Guiding R-Script สำหรับการทำ Interactive Dashboard เพื่อการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น มีดังต่อไปนี้**
 
