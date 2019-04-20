@@ -172,7 +172,6 @@ dev.off()
 ![](figures/election2019_top5_all_provinces.jpg)
 
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
-
 <br/><br/>
 
 - อีกรูปแบบหนึ่งที่น่าจะเป็นประโยชน์ต่อการทำ Data Visualization ก็คือ การแสดงข้อมูลในเชิงพื้นที่ซึ่งช่วยให้เราสามารถวิเคราะห์บริบทที่แตกต่างกันของแต่ละพื้นที่ เพื่อให้การแสดงข้อมูลมีความน่าสนใจมากยิ่งขึ้น
@@ -252,7 +251,7 @@ ani_byRegion <- function(region, offset, fps) {
 <td><img src="figures/tempo_south.png" width="240" height="240"> <figcaption>(a) Southern Region</figcaption></td>
 <td><img src="figures/tempo_west.png" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
 <td><img src="figures/tempo_central.png" width="240" height="240"> <figcaption>(c) Central Region</figcaption></td>
-<td><img src="figures/tempo_metro.png" width="240" height="240"> <figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
+<td><img src="figures/tempo_metro.png" width="240" height="240"> <br/><figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
 <br/><br/>
 <table><tr>
 <td><img src="figures/tempo_east.png" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
@@ -294,7 +293,7 @@ dev.off()
 
 <img src="figures/age_distribution_provinces.jpg">
 <figcaption>Fig.4 Facet Plot of Age Distribution across Thailand</figcaption>
-<br/><br/><br/>
+<br/><br/>
 
 - ในส่วนสุดท้ายของบทความนี้ เราจะมาลองทำ Interactive Visualization ตามที่ได้แสดงไว้ในตอนต้นของบทความ เพื่อช่วยในการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น
 <br/>
