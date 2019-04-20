@@ -12,7 +12,7 @@ Interactive visualization ต่อไปนี้ แสดงการวิ�
 
 
 <p align="center">
-<iframe src="figures/plotly.html" width="1200" height="450" ></iframe>
+<iframe src="figures/plotly.html" width="1200" height="450" frameBorder="0"></iframe>
 </p>
 
 
@@ -246,7 +246,7 @@ ani_byRegion <- function(region, offset, fps) {
   anim_save(paste0("/Path/to/Your/Directory/filename_",zone,".gif"), p2.1)
 }
 ```
-<p align="center>
+
 <table><tr>
 <td><img src="figures/tempo_south.png" width="240" height="240"> <figcaption>(a) Southern Region</figcaption></td>
 <td><img src="figures/tempo_west.png" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
@@ -260,7 +260,6 @@ ani_byRegion <- function(region, offset, fps) {
 
 <figcaption>Fig.2 Static Visualization of Mapped Election Results by Region</figcaption>
 <br/><br/><br/>
-</p>
 
 <table><tr>
 <td><img src="figures/ani_region_south.gif" width="240" height="240"> <figcaption>(a) Southern Region</figcaption></td>
