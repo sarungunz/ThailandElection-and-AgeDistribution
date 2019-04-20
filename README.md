@@ -8,7 +8,7 @@
 
 ตัวอย่างสมมติฐาน (หรือความเชื่อ) ที่ผมรู้สึก (อาจจะรู้สึกคนเดียว ^ ^!) เวลาอ่านบทความวิเคราะห์ต่างๆ คือ คะแนนเสียงที่พรรคการเมืองพรรคใหม่พรรคหนึ่งได้มาส่วนใหญ่น้ัน น่าจะมาจากเสียงของคนรุ่นใหม่ ?!? ซึ่งเป็นเหตุให้ผมอยากลองทดสอบข้อสมมติฐานหรือความเชื่อเหล่านี้ในการเลือกตั้งคร้ังที่ผ่านมา
 
-Interactive visualization ต่อไปนี้ แสดงผลการวิเคราะห์(ในเบื้องต้น) ความสัมพันธ์ระหว่างสัดส่วน (%) ของคะแนนเสียงที่แต่ละพรรคได้รับในระดับจังหวัด กับ สัดส่วน (%) ของ `คนรุ่นใหม่` ต่อประชากรผู้มีสิทธิ์ออกเสียงทั้งหมดในจังหวัดนั้นๆ
+Interactive visualization ต่อไปนี้ แสดงการวิเคราะห์อย่างง่ายด้วย Regression เพื่อประมาณความสัมพันธ์ระหว่างสัดส่วน (%) ของคะแนนเสียงที่แต่ละพรรคได้รับในระดับจังหวัด กับ สัดส่วน (%) ของ `คนรุ่นใหม่` ต่อประชากรผู้มีสิทธิ์ออกเสียงทั้งหมดในจังหวัดนั้นๆ
 
 
 <p align="center">
@@ -170,7 +170,9 @@ dev.off()
 
 ```
 ![](figures/election2019_top5_all_provinces.jpg)
+<p align="center">
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
+</p>
 <br/><br/><br/>
 
 - อีกรูปแบบหนึ่งที่น่าจะเป็นประโยชน์ต่อการทำ Data Visualization ก็คือ การแสดงข้อมูลในเชิงพื้นที่ซึ่งช่วยให้เราสามารถวิเคราะห์บริบทที่แตกต่างกันของแต่ละพื้นที่ เพื่อให้การแสดงข้อมูลมีความน่าสนใจมากยิ่งขึ้น
@@ -254,7 +256,7 @@ ani_byRegion <- function(region, offset, fps) {
 <br/><br/>
 <table><tr>
 <td><img src="figures/tempo_east.png" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
-<td><img src="figures/tempo_neast.png" width="240" height="240"> <figcaption>(f) NorthEastern Region</figcaption></td>
+<td><img src="figures/tempo_neast.png" width="240" height="240"> <figcaption>(f) N-Eastern Region</figcaption></td>
 <td><img src="figures/tempo_north.png" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
 
 <figcaption>Fig.2 Static Visualization of Mapped Election Results by Region</figcaption>
@@ -269,7 +271,7 @@ ani_byRegion <- function(region, offset, fps) {
 <br/><br/>
 <table><tr>
 <td><img src="figures/ani_region_east.gif" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
-<td><img src="figures/ani_region_neast.gif" width="240" height="240"> <figcaption>(f) NorthEastern Region</figcaption></td>
+<td><img src="figures/ani_region_neast.gif" width="240" height="240"> <figcaption>(f) N-Eastern Region</figcaption></td>
 <td><img src="figures/ani_region_north.gif" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
 
 <figcaption>Fig.3 Animation of Mapped Election Results by Region</figcaption>
