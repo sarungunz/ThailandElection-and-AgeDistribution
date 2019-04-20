@@ -2,3 +2,6 @@ theme: jekyll-theme-cayman
 plugins:
   - jekyll-seo-tag
 author: sarungunz
+
+title: ThailandElection-and-AgeDistribution
+description: A very simple analysis of the effect of age distribution on Thai election result
