@@ -173,7 +173,7 @@ dev.off()
 
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
 
-<br/><br/><br/>
+<br/><br/>
 
 - อีกรูปแบบหนึ่งที่น่าจะเป็นประโยชน์ต่อการทำ Data Visualization ก็คือ การแสดงข้อมูลในเชิงพื้นที่ซึ่งช่วยให้เราสามารถวิเคราะห์บริบทที่แตกต่างกันของแต่ละพื้นที่ เพื่อให้การแสดงข้อมูลมีความน่าสนใจมากยิ่งขึ้น
 - Fig.2 แสดง (Static) Data Visualization โดย Link ข้อมูลผลการเลือกตั้งเข้ากับ Polygon ของจังหวัด และเพื่อเพิ่มความน่าสนใจ จึงลองสร้าง Animation ที่แสดงผลการเลือกตั้งในระดับจังหวัดเช่นเดียวกัน ดังแสดงใน Fig.3
@@ -275,8 +275,7 @@ ani_byRegion <- function(region, offset, fps) {
 <td><img src="figures/ani_region_north.gif" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
 
 <figcaption>Fig.3 Animation of Mapped Election Results by Region</figcaption>
-<br/><br/><br/>
-
+<br/><br/>
 
 - ในส่วนของ Data visualization ของข้อมูลสัดส่วนจำนวนประชากรคนรุ่นใหม่ต่อประชากรผู้มีสิทธิ์ทัั้งหมดในแต่ละจังหวัดประจำปี 2561 นั้น ผู้เขียนตัดสินใจสร้าง Facet plot เช่นเดียวกันกับผลการเลือกตั้งข้างบน เพื่อสะดวกต่อการเปรียบเทียบ ดังแสดงใน Fig.4
 
