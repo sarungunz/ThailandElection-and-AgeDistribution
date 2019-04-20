@@ -171,7 +171,7 @@ dev.off()
 ```
 ![](figures/election2019_top5_all_provinces.jpg)
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
-<br/><br/>
+<br/><br/><br/>
 
 - อีกรูปแบบหนึ่งที่น่าจะเป็นประโยชน์ต่อการทำ Data Visualization ก็คือ การแสดงข้อมูลในเชิงพื้นที่ซึ่งช่วยให้เราสามารถวิเคราะห์บริบทที่แตกต่างกันของแต่ละพื้นที่ เพื่อให้การแสดงข้อมูลมีความน่าสนใจมากยิ่งขึ้น
 - Fig.2 แสดง (Static) Data Visualization โดย Link ข้อมูลผลการเลือกตั้งเข้ากับ Polygon ของจังหวัด และเพื่อเพิ่มความน่าสนใจ จึงลองสร้าง Animation ที่แสดงผลการเลือกตั้งในระดับจังหวัดเช่นเดียวกัน ดังแสดงใน Fig.3
@@ -251,14 +251,14 @@ ani_byRegion <- function(region, offset, fps) {
 <td><img src="figures/tempo_west.png" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
 <td><img src="figures/tempo_central.png" width="240" height="240"> <figcaption>(c) Central Region</figcaption></td>
 <td><img src="figures/tempo_metro.png" width="240" height="240"> <figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
-
+<br/><br/>
 <table><tr>
 <td><img src="figures/tempo_east.png" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
 <td><img src="figures/tempo_neast.png" width="240" height="240"> <figcaption>(f) NorthEastern Region</figcaption></td>
 <td><img src="figures/tempo_north.png" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
 
 <figcaption>Fig.2 Static Visualization of Mapped Election Results by Region</figcaption>
-
+<br/><br/><br/>
 
 
 <table><tr>
@@ -266,14 +266,14 @@ ani_byRegion <- function(region, offset, fps) {
 <td><img src="figures/ani_region_west.gif" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
 <td><img src="figures/ani_region_central.gif" width="240" height="240"> <figcaption>(c) Central Region</figcaption></td>
 <td><img src="figures/ani_region_metro.gif" width="240" height="240"> <figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
-
+<br/><br/>
 <table><tr>
 <td><img src="figures/ani_region_east.gif" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
 <td><img src="figures/ani_region_neast.gif" width="240" height="240"> <figcaption>(f) NorthEastern Region</figcaption></td>
 <td><img src="figures/ani_region_north.gif" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
 
 <figcaption>Fig.3 Animation of Mapped Election Results by Region</figcaption>
-
+<br/><br/><br/>
 
 
 - ในส่วนของ Data visualization ของข้อมูลสัดส่วนจำนวนประชากรคนรุ่นใหม่ต่อประชากรผู้มีสิทธิ์ทัั้งหมดในแต่ละจังหวัดประจำปี 2561 นั้น ผู้เขียนตัดสินใจสร้าง Facet plot เช่นเดียวกันกับผลการเลือกตั้งข้างบน เพื่อสะดวกต่อการเปรียบเทียบ ดังแสดงใน Fig.4
@@ -293,12 +293,10 @@ dev.off()
 
 <img src="figures/age_distribution_provinces.jpg">
 <figcaption>Fig.4 Facet Plot of Age Distribution across Thailand</figcaption>
-
-
+<br/><br/><br/>
 
 - ในส่วนสุดท้ายของบทความนี้ เราจะมาลองทำ Interactive Visualization ตามที่ได้แสดงไว้ในตอนต้นของบทความ เพื่อช่วยในการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น
-
-
+<br/>
 
 ### **Guiding R-Script สำหรับการทำ Interactive Dashboard เพื่อการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น มีดังต่อไปนี้**
 
