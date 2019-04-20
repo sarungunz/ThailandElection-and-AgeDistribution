@@ -171,7 +171,7 @@ dev.off()
 ```
 ![](figures/election2019_top5_all_provinces.jpg)
 
-.center[Fig.1 Facet Plot of Selected 5 Parties across Thailand]
+<center><figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption></center>
 
 <br/><br/><br/>
 
