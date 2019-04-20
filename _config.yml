@@ -4,4 +4,4 @@ plugins:
 author: sarungunz
 
 title: ThailandElection-and-AgeDistribution
-description: Data visualization of Thailand election 2019 using age distribution of voters 
+description: Naive analysis of the effect of age distribution of voters on Thailand election 2019 
