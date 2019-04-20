@@ -172,6 +172,7 @@ dev.off()
 ![](figures/election2019_top5_all_provinces.jpg)
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
 
+
 - อีกรูปแบบหนึ่งที่น่าจะเป็นประโยชน์ต่อการทำ Data Visualization ก็คือ การแสดงข้อมูลในเชิงพื้นที่ซึ่งช่วยให้เราสามารถวิเคราะห์บริบทที่แตกต่างกันของแต่ละพื้นที่ เพื่อให้การแสดงข้อมูลมีความน่าสนใจมากยิ่งขึ้น
 - Fig.2 แสดง (Static) Data Visualization โดย Link ข้อมูลผลการเลือกตั้งเข้ากับ Polygon ของจังหวัด และเพื่อเพิ่มความน่าสนใจ จึงลองสร้าง Animation ที่แสดงผลการเลือกตั้งในระดับจังหวัดเช่นเดียวกัน ดังแสดงใน Fig.3
 - ในส่วนของ Shapefile ของจังหวัดทั้งหมดของประเทศไทยนั้น ผมทำการ Download จาก ArcGIS REST Services Directory ของ GISTDA และแปลงเป็น SpatialPolygonDataFrame
@@ -180,7 +181,7 @@ dev.off()
 
 ### **Guiding R-Script สำหรับการทำ Data Visualization และ Data Animation ข้อมูลผลการเลือกตั้งเชิงพื้นที่ มีดังต่อไปนี้**
 
-```{r}
+```r
 # Create function to plot each region separately
 region <- c("north","west","east","neast","central","south","metro")
 plot_by_region <- function(region,width,height,offset) {
@@ -258,6 +259,8 @@ ani_byRegion <- function(region, offset, fps) {
 
 <figcaption>Fig.2 Static Visualization of Mapped Election Results by Region</figcaption>
 
+
+
 <table><tr>
 <td><img src="figures/ani_region_south.gif" width="240" height="240"> <figcaption>(a) Southern Region</figcaption></td>
 <td><img src="figures/ani_region_west.gif" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
@@ -271,11 +274,13 @@ ani_byRegion <- function(region, offset, fps) {
 
 <figcaption>Fig.3 Animation of Mapped Election Results by Region</figcaption>
 
+
+
 - ในส่วนของ Data visualization ของข้อมูลสัดส่วนจำนวนประชากรคนรุ่นใหม่ต่อประชากรผู้มีสิทธิ์ทัั้งหมดในแต่ละจังหวัดประจำปี 2561 นั้น ผู้เขียนตัดสินใจสร้าง Facet plot เช่นเดียวกันกับผลการเลือกตั้งข้างบน เพื่อสะดวกต่อการเปรียบเทียบ ดังแสดงใน Fig.4
 
 ### **Guiding R-Script สำหรับการทำ Data Visualization ข้อมูลสัดส่วนจำนวนประชากรคนรุ่นใหม่ มีดังต่อไปนี้**
 
-```{r}
+```r
 jpeg(paste0('/Volumes/SGunK/Research_Database/election2019/age_distribution_provinces.jpg'), width = 16000, height = 9000, units = 'px', res = 1000)
 ggplot(data = melt_tot, mapping = aes(x = age, y = persons, fill = prvEN)) +
   geom_bar(stat = "identity", position=position_dodge(), width = 0.3) +
@@ -289,7 +294,11 @@ dev.off()
 <img src="figures/age_distribution_provinces.jpg">
 <figcaption>Fig.4 Facet Plot of Age Distribution across Thailand</figcaption>
 
+
+
 - ในส่วนสุดท้ายของบทความนี้ เราจะมาลองทำ Interactive Visualization ตามที่ได้แสดงไว้ในตอนต้นของบทความ เพื่อช่วยในการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น
+
+
 
 ### **Guiding R-Script สำหรับการทำ Interactive Dashboard เพื่อการวิเคราะห์ผลการเลือกต้ังในเบื้องต้น มีดังต่อไปนี้**
 
