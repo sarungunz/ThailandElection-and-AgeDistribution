@@ -171,7 +171,7 @@ dev.off()
 ```
 ![](figures/election2019_top5_all_provinces.jpg)
 <figcaption>Fig.1 Facet Plot of Selected 5 Parties across Thailand</figcaption>
-</br>
+<br/><br/>
 
 - อีกรูปแบบหนึ่งที่น่าจะเป็นประโยชน์ต่อการทำ Data Visualization ก็คือ การแสดงข้อมูลในเชิงพื้นที่ซึ่งช่วยให้เราสามารถวิเคราะห์บริบทที่แตกต่างกันของแต่ละพื้นที่ เพื่อให้การแสดงข้อมูลมีความน่าสนใจมากยิ่งขึ้น
 - Fig.2 แสดง (Static) Data Visualization โดย Link ข้อมูลผลการเลือกตั้งเข้ากับ Polygon ของจังหวัด และเพื่อเพิ่มความน่าสนใจ จึงลองสร้าง Animation ที่แสดงผลการเลือกตั้งในระดับจังหวัดเช่นเดียวกัน ดังแสดงใน Fig.3
