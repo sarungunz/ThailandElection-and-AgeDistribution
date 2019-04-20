@@ -251,11 +251,11 @@ ani_byRegion <- function(region, offset, fps) {
 <td><img src="figures/tempo_south.png" width="240" height="240"> <figcaption>(a) Southern Region</figcaption></td>
 <td><img src="figures/tempo_west.png" width="240" height="240"> <figcaption>(b) Western Region</figcaption></td>
 <td><img src="figures/tempo_central.png" width="240" height="240"> <figcaption>(c) Central Region</figcaption></td>
-<td><img src="figures/tempo_metro.png" width="240" height="240"> <br/><figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
+<td><img src="figures/tempo_metro.png" width="240" height="240"> <figcaption>(d) Metropolitan Region</figcaption></td></tr></table>
 <br/><br/>
 <table><tr>
 <td><img src="figures/tempo_east.png" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
-<td><img src="figures/tempo_neast.png" width="240" height="240"> <figcaption>(f) N-Eastern Region</figcaption></td>
+<td><img src="figures/tempo_neast.png" width="240" height="240"> <figcaption>  (f) N-Eastern Region</figcaption></td>
 <td><img src="figures/tempo_north.png" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
 
 <figcaption>Fig.2 Static Visualization of Mapped Election Results by Region</figcaption>
@@ -270,7 +270,7 @@ ani_byRegion <- function(region, offset, fps) {
 <br/><br/>
 <table><tr>
 <td><img src="figures/ani_region_east.gif" width="240" height="240"> <figcaption>(e) Eastern Region</figcaption></td>
-<td><img src="figures/ani_region_neast.gif" width="240" height="240"> <figcaption>(f) N-Eastern Region</figcaption></td>
+<td><img src="figures/ani_region_neast.gif" width="240" height="240"> <figcaption>  (f) N-Eastern Region</figcaption></td>
 <td><img src="figures/ani_region_north.gif" width="240" height="240"> <figcaption>(g) Northern Region</figcaption></td></tr></table>
 
 <figcaption>Fig.3 Animation of Mapped Election Results by Region</figcaption>
