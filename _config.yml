@@ -1,1 +1,7 @@
 theme: jekyll-theme-cayman
+plugins:
+  - jekyll-seo-tag
+author: sarungunz
+
+title: ThailandElection-and-AgeDistribution
+description: Data visualization of Thailand election 2019 using age distribution of voters 
