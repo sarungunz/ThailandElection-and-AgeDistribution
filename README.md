@@ -12,7 +12,7 @@ Interactive visualization ต่อไปนี้ แสดงการวิ�
 
 <br/>
 <p align="center">
-<iframe src="figures/plotly.html" width="1200" height="450" frameBorder="0"></iframe>
+<iframe src="figures/plotly.html" width="1500" height="600" frameBorder="0"></iframe>
 </p>
 <br/>
 
